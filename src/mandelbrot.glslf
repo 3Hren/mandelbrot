@@ -33,7 +33,7 @@ vec4 blackwhite(int i) {
 }
 
 vec4 grayscale(int i) {
-    if ( i == threshold) {
+    if (i == threshold) {
         return vec4(0.0, 0.0, 0.0, 1.0);
     } else {
         float n = sqrt(float(i) / float(threshold));
