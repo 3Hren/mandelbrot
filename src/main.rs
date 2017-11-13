@@ -143,7 +143,7 @@ fn main() {
                     dy / height as f64
                 };
 
-                mx -= 0.5 * dx / zoom;
+                mx += 0.5 * dx / zoom;
                 my -= 0.5 * dy / zoom;
             }
             Some(..) | None => {}
@@ -153,7 +153,7 @@ fn main() {
         let indices = NoIndices(PrimitiveType::TrianglesList);
         let uniform = uniform! {
             matrix: [
-                [-1.0 / zoom as f32,  0.0,                         0.0, 0.0],
+                [ 1.0 / zoom as f32,  0.0,                         0.0, 0.0],
                 [ 0.0,                1.0 / (zoom * ratio) as f32, 0.0, 0.0],
                 [ 0.0,                0.0,                         1.0, 0.0],
                 [-mx as f32,         -my as f32,                   0.0, 1.0],
