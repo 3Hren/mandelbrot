@@ -60,7 +60,6 @@ fn main() {
     let vbuf = VertexBuffer::new(&display, &vertices).unwrap();
 
     let mut zoom = 0.5f64;
-    let mut ratio = width as f64 / height as f64;
     let mut mx = 1.0f64;
     let mut my = 1.0f64;
 
@@ -70,6 +69,8 @@ fn main() {
 
     ev.run_forever(|event| {
         let mut frame = display.draw();
+        let dim = frame.get_dimensions();
+        let ratio = dim.0 as f64 / dim.1 as f64;
 
         let control = match event {
             Event::WindowEvent { event, .. } => {
@@ -78,7 +79,6 @@ fn main() {
                         match input.virtual_keycode {
                             Some(VirtualKeyCode::R) => {
                                 zoom = 0.5;
-                                ratio = width as f64 / height as f64;
                                 mx = 1.0;
                                 my = 1.0;
                             }
@@ -143,8 +143,8 @@ fn main() {
                     dy / height as f64
                 };
 
-                mx += 0.5 * dx / zoom;
-                my -= 0.5 * dy / zoom;
+                mx += 0.33 * dx / (zoom * ratio);
+                my -= 0.33 * dy / (zoom * ratio);
             }
             Some(..) | None => {}
         }
