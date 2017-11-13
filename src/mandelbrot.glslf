@@ -8,7 +8,6 @@ const int iters = 100;
 
 void main() {
     vec2 c = (matrix * vec4(gl_PointCoord, 0, 1)).xy;
-//    vec2 c = ((gl_FragCoord.xy + offset) / 1024.0 * 4.0 - 2.0) * scale;
     vec2 z = c;
 
     int i;
