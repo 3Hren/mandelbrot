@@ -4,7 +4,7 @@ uniform mat4 matrix;
 
 out vec4 color;
 
-const int threshold = 500;
+const int threshold = 200;
 
 bool fast_check(vec2 z) {
     float r = sqrt(pow(z.x - 0.25, 2) + pow(z.y, 2));

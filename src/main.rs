@@ -60,8 +60,8 @@ fn main() {
     let vbuf = VertexBuffer::new(&display, &vertices).unwrap();
 
     let mut zoom = 0.5f64;
-    let mut mx = 1.0f64;
-    let mut my = 1.0f64;
+    let mut mx = 0.0f64;
+    let mut my = 0.0f64;
 
     let mut current_button = None;
     let mut prev_position = (0f64, 0f64);
@@ -79,8 +79,8 @@ fn main() {
                         match input.virtual_keycode {
                             Some(VirtualKeyCode::R) => {
                                 zoom = 0.5;
-                                mx = 1.0;
-                                my = 1.0;
+                                mx = 0.0;
+                                my = 0.0;
                             }
                             Some(..) | None => {}
                         }
